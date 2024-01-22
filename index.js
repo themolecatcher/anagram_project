@@ -11,12 +11,12 @@ const generalWords = ["tablecloth", "angel", "meat", "armpit",
 "vine", "vetoed", "vast", "viewers", "vowels", "weather", "what", "waist", "wart", "wasps",
 "wipes", "worried", "yard", "zone", "zen"];
 
-// console.log(generalWords)
-
 function loopThroughWords(words) {
     for (let i = 0; i < words.length; i++) {
-        console.log(words)
+        console.log(words[i])
     }
 }
 
-console.log(loopThroughWords(generalWords))
+loopThroughWords(generalWords)
+
+
