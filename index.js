@@ -12,7 +12,11 @@ const generalWords = ["tablecloth", "angel", "meat", "armpit",
 "wipes", "worried", "yard", "zone", "zen"];
 
 const button = document.getElementById('button');
-let anagramWord = document.getElementById('anagram');
+const anagramWord = document.getElementById('anagram');
+const checkButton = document.getElementById('check-button');
+let inputField = document.getElementById('input-field')
+let originalWord = ''
+
 
 function getRandomWord(words) {
     const randomWord = Math.floor(Math.random() * words.length)
@@ -26,12 +30,23 @@ function shuffleWord(word) {
 }
 
 function displayShuffledWord() {
+  originalWord = getRandomWord(generalWords);
   const shuffledWord = shuffleWord(getRandomWord(generalWords));
   anagramWord.innerText = shuffledWord;
 }
 
 button.addEventListener('click', displayShuffledWord);
 
+checkButton.addEventListener('click', () => {
+    const guess = inputField.value.toLowerCase()
+    if (guess === originalWord.toLowerCase()) {
+            alert('Congrats!')
+    } else {
+        alert ('You guessed wrong, try again!')
+    }
+})
+
+inputField.addEventListener('input', checkGuess);
 
 
 
