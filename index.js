@@ -11,12 +11,27 @@ const generalWords = ["tablecloth", "angel", "meat", "armpit",
 "vine", "vetoed", "vast", "viewers", "vowels", "weather", "what", "waist", "wart", "wasps",
 "wipes", "worried", "yard", "zone", "zen"];
 
-function loopThroughWords(words) {
-    for (let i = 0; i < words.length; i++) {
-        console.log(words[i])
-    }
+const button = document.getElementById('button');
+let anagramWord = document.getElementById('anagram');
+
+function getRandomWord(words) {
+    const randomWord = Math.floor(Math.random() * words.length)
+    return words[randomWord]
 }
 
-loopThroughWords(generalWords)
+function shuffleWord(word) {
+  const splitWord = word.split('');
+  const shuffledArray = splitWord.sort(() => Math.random() - 0.5);
+  return shuffledArray.join('');
+}
+
+function displayShuffledWord() {
+  const shuffledWord = shuffleWord(getRandomWord(generalWords));
+  anagramWord.innerText = shuffledWord;
+}
+
+button.addEventListener('click', displayShuffledWord);
+
+
 
 
