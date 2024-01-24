@@ -1,13 +1,63 @@
 body {
     text-align: center;
     font-family: "Pixelify Sans", sans-serif;
+    box-sizing: border-box;
 }
 
-p, button {
+p, button, input {
     font-family: "Afacad", sans-serif;
+    font-size: 18px;
+}
+
+.anagramword {
+    letter-spacing: 2px;
+    font-size: 22px;
+    margin-bottom: 0;
+    font-weight: 700;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+}
+
+.word-length {
+    margin: 0;
+}
+
+h2 {
+    margin-bottom: 0;
 }
 
 button {
     display: block;
+    width: 15%;
     margin: 0 auto;
+    padding: 10px 0;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.generate-button {
+    background-color: #AAD9BB;
+}
+
+.check-button {
+    background-color: #F9F7C9;
+}
+
+.pass-button {
+    background-color: #DC8686;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+input {
+    width: 30%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
 }

@@ -11,12 +11,19 @@
   </head>
   
   <body>
-    <h1>Anagram quiz</h1>
-    <h2>All letters are shuffled, try guessing the original word </h2>
+    <header>
+      <h1>Anagram game</h1>
+      <h2>Try guessing the original word </h2>
+  </header>
+    
+  <section>
     <p class="anagramword" id="anagram"></p>
-    <input type="text" id="input-field"></input>
-    <button id="button">Generate word</button>
-    <button id="check-button">Check my guess</button>
+    <p class="word-length" id="word-length"></p>
+    <input type="text" id="input-field" placeholder="Your guess"></input>
+    <button class ="generate-button" id="generate-button">Start game!</button>
+    <button class="check-button" id="check-button">Check my guess</button>
+    <button class="pass-button" id="pass-button">Pass</button>
     <script src="index.js"></script>
+  </section>
   </body>
 </html>

@@ -11,9 +11,12 @@ const generalWords = ["tablecloth", "angel", "meat", "armpit",
 "vine", "vetoed", "vast", "viewers", "vowels", "weather", "what", "waist", "wart", "wasps",
 "wipes", "worried", "yard", "zone", "zen"];
 
-const button = document.getElementById('button');
-const anagramWord = document.getElementById('anagram');
+const generateButton = document.getElementById('generate-button');
 const checkButton = document.getElementById('check-button');
+const passButton = document.getElementById('pass-button')
+const anagramWord = document.getElementById('anagram');
+const wordLength = document.getElementById('word-length')
+
 let inputField = document.getElementById('input-field')
 let originalWord = getRandomWord(generalWords)
 
@@ -23,32 +26,44 @@ function getRandomWord(words) {
 }
 
 function shuffleWord(word) {
-  const splitWord = word.split('');
-  const shuffledArray = splitWord.sort(() => Math.random() - 0.5);
-  return shuffledArray.join('');
+  let shuffledWord = word;
+
+  while (shuffledWord === word) {
+    const splitWord = word.split('');
+    const shuffledArray = splitWord.sort(() => Math.random() - 0.5);
+    shuffledWord = shuffledArray.join('')
+}
+  return shuffledWord;
 }
 
 function displayShuffledWord() {
   const shuffledWord = shuffleWord(originalWord);
-  anagramWord.innerText = `${shuffledWord}, ${originalWord.length} letters long`;
+  anagramWord.innerText = shuffledWord;
+  wordLength.innerText = `${originalWord.length} letters long`;
 }
 
-button.addEventListener('click', displayShuffledWord);
-
-checkButton.addEventListener('click', () => {
-    const guess = inputField.value.toLowerCase()
-    if (guess === originalWord.toLowerCase()) {
-            alert('Congrats!');
-            inputField.value = '';
-            originalWord = getRandomWord(generalWords)
-            displayShuffledWord();        
-    } else {
+function checkGuess() {
+  const guess = inputField.value.toLowerCase()
+      if (guess === originalWord.toLowerCase()) {
+          alert('Congrats!');
+          inputField.value = '';
+          originalWord = getRandomWord(generalWords)
+          displayShuffledWord();        
+  }   else {
         alert ('You guessed wrong, try again!')
         inputField.value = '';
-    }
+  }
+}
+
+generateButton.addEventListener('click', () => { 
+  displayShuffledWord();
+}, {once : true});
+
+checkButton.addEventListener('click', checkGuess)
+
+passButton.addEventListener('click', () => {
+    inputField.value = '';
+    originalWord = getRandomWord(generalWords)
+    displayShuffledWord();
 })
-
-inputField.addEventListener('input', checkGuess);
-
-
 
