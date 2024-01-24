@@ -17,7 +17,6 @@ const checkButton = document.getElementById('check-button');
 let inputField = document.getElementById('input-field')
 let originalWord = getRandomWord(generalWords)
 
-
 function getRandomWord(words) {
     const randomWord = Math.floor(Math.random() * words.length)
     return words[randomWord]
@@ -31,7 +30,7 @@ function shuffleWord(word) {
 
 function displayShuffledWord() {
   const shuffledWord = shuffleWord(originalWord);
-  anagramWord.innerText = shuffledWord;
+  anagramWord.innerText = `${shuffledWord}, ${originalWord.length} letters long`;
 }
 
 button.addEventListener('click', displayShuffledWord);

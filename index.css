@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+p, button {
+    font-family: "Afacad", sans-serif;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+}
