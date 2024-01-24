@@ -15,7 +15,7 @@ const button = document.getElementById('button');
 const anagramWord = document.getElementById('anagram');
 const checkButton = document.getElementById('check-button');
 let inputField = document.getElementById('input-field')
-let originalWord = ''
+let originalWord = getRandomWord(generalWords)
 
 
 function getRandomWord(words) {
@@ -30,8 +30,7 @@ function shuffleWord(word) {
 }
 
 function displayShuffledWord() {
-  originalWord = getRandomWord(generalWords);
-  const shuffledWord = shuffleWord(getRandomWord(generalWords));
+  const shuffledWord = shuffleWord(originalWord);
   anagramWord.innerText = shuffledWord;
 }
 
@@ -40,9 +39,13 @@ button.addEventListener('click', displayShuffledWord);
 checkButton.addEventListener('click', () => {
     const guess = inputField.value.toLowerCase()
     if (guess === originalWord.toLowerCase()) {
-            alert('Congrats!')
+            alert('Congrats!');
+            inputField.value = '';
+            originalWord = getRandomWord(generalWords)
+            displayShuffledWord();        
     } else {
         alert ('You guessed wrong, try again!')
+        inputField.value = '';
     }
 })
 
