@@ -38,7 +38,7 @@ function shuffleWord(word) {
 
 function displayShuffledWord() {
   const shuffledWord = shuffleWord(originalWord);
-  anagramWord.innerText = shuffledWord;
+  anagramWord.innerText = shuffledWord.toUpperCase();
   wordLength.innerText = `${originalWord.length} letters long`;
 }
 

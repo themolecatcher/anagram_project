@@ -10,7 +10,7 @@ p, button, input {
 }
 
 .anagramword {
-    letter-spacing: 2px;
+    letter-spacing: 5px;
     font-size: 22px;
     margin-bottom: 0;
     font-weight: 700;
